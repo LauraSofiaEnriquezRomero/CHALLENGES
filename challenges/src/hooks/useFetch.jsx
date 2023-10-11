@@ -1,4 +1,7 @@
-import { useEffect, useState } from "react";
+// src/hooks/useFetch.jsx
+
+import { useEffect, useState } from 'react';
+
 export const useFetch = (url) => {
   const [state, setState] = useState({
     data: null,
@@ -7,14 +10,25 @@ export const useFetch = (url) => {
   });
 
   const getFetch = async () => {
-    const api = await fetch(url);
-    const data = await api.json();
+    try {
+      const api = await fetch(url);
+      if (!api.ok) {
+        throw new Error(`Failed to fetch: ${api.status} - ${api.statusText}`);
+      }
+      const data = await api.json();
 
-    setState({
-      data,
-      isLoading: false,
-      hasError: null
-    });
+      setState({
+        data,
+        isLoading: false,
+        hasError: null
+      });
+    } catch (error) {
+      setState({
+        data: null,
+        isLoading: false,
+        hasError: error.message
+      });
+    }
   };
 
   useEffect(() => {

@@ -14,7 +14,7 @@ export const useCounter = (value) => {
   };
   return {
     counter: counter,
-    Sum: handleAdd,
+    increment: handleAdd,
     Less: handleSubtract,
     Reset: handleReset
   };

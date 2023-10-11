@@ -1,9 +1,10 @@
-import { FirstApp } from './components/FirstApp';
+//import { FirstApp } from './components/FirstApp';
+import { MultipleCustomHook } from './components/MultipleCustomHook';
 
 function App() {
   return (
     <div className="App">
-      <FirstApp />
+      <MultipleCustomHook />
     </div>
 
   );
