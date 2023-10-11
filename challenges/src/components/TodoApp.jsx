@@ -13,7 +13,7 @@ export const TodoApp = () => {
   return (
     <>
       <h1>
-        TodoApp:10,<small>pendientes:2</small>
+        TodoApp: 10,<small>pendientes: 2</small>
       </h1>
       <hr />
       <div className="row">

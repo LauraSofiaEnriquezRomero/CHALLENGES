@@ -1,9 +1,10 @@
-import { TodoApp } from "./components/TodoApp";
+//import { TodoApp } from "./components/TodoApp";
+import { MainApp } from "./pages/MainApp";
 
 export default function App() {
   return (
     <div className="App">
-      <TodoApp />
+      <MainApp/>
     </div>
   );
 }
