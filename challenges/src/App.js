@@ -2,10 +2,9 @@ import "./App.css"
 const App = () => {
   return (
     <>
-      <h1>Hola Mundo</h1>
-      <p>Welcome</p>
+      <title>Titulo</title>
     </>
   )
 }
- 
+
 export default App;
