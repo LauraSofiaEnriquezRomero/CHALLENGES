@@ -17,6 +17,7 @@ export const TodoItem = ({ todo, onDelete, onToggleDone }) => {
       </span>
       <button
         className="btn btn-danger"
+        style={{ backgroundColor: "green" }}
         onClick={handleDelete}
       >
         Eliminar
