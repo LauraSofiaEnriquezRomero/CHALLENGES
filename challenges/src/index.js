@@ -1,15 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
-import { UserProvider } from './context//UserContext';
-import App from './App';
-import { store } from './reducers/store';
-
-ReactDOM.render(
-  <Provider store={store}>
-    <UserProvider>
-      <App />
-    </UserProvider>
-  </Provider>,
-  document.getElementById('root')
+import { BrowserRouter } from 'react-router-dom';
+import { Store } from './store/Store'
+import Registro from './components/registro';
+import Upload from './components/upload';
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+    <Provider store={Store}>
+        <BrowserRouter>
+            <Registro />
+            <Upload />
+        </BrowserRouter>
+    </Provider>
 );
