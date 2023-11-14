@@ -1,14 +1,31 @@
 const express = require("express");
-const dotenv = require("dotenv");
-const authRoutes = require("./routes/auth");
+require('dotenv').config(); 
+const { dbConnection } = require('./database/config');
 
-dotenv.config();
+
+//Crear express app
 const app = express();
-app.use(express.static("public"));
-app.use(express.json());
-app.use("/api/auth", authRoutes);
 
-const PORT = process.env.PORT || 4000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+//Base de datos
+dbConnection()
+
+//Cors
+const cors = require('cors',{cors:{
+  origin: '*'
+}})
+
+//Statics files
+app.use(express.static('public'))
+
+
+//Lectura y parseo del body
+app.use(express.json())
+
+//Rutas
+app.use('/api/auth', require('./routes/auth'))
+app.use('/api/task', require('./routes/task'))
+
+//Escuchar en puerto 4000
+app.listen(process.env.PORT, () => {
+  console.log("Server on port:", process.env.PORT)
 });
