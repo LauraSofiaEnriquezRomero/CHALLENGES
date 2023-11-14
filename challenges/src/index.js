@@ -1,13 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { UserProvider } from './context//UserContext';
 import App from './App';
-import UserProvider from './components/UserProvider';
+import { store } from './reducers/store';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <UserProvider>
       <App />
     </UserProvider>
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
